@@ -215,17 +215,16 @@ a {
   padding: 0.5rem;
 }
 
-/* Hero Section */
 .hero-section {
   padding-top: 8rem;
   padding-bottom: 5rem;
   background-color: var(--bg-cream);
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
 .hero-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px; /* Increased container width */
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
@@ -242,8 +241,8 @@ a {
 }
 
 .hero-banner-wrapper {
-  width: 100%;
-  max-width: 1100px; /* Controls image width */
+  width: 95%; /* Makes image wider */
+  max-width: 1400px;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(2, 35, 73, 0.12);
@@ -278,19 +277,14 @@ a {
   }
 
   .hero-container {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+    padding: 0 15px;
+  }
 
-.hero-banner-wrapper {
-  width: 100%;
-  max-width: 1500px; /* Increased from 1100px */
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(2, 35, 73, 0.12);
-}
+  .hero-banner-wrapper {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 15px;
+  }
 }
 
 .badge-admissions {
