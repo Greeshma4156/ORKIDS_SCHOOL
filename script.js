@@ -154,4 +154,46 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 6. Stats Count Up Animation on Scroll
+  const statsSection = document.querySelector('.stats-section');
+  const statNumbers = document.querySelectorAll('.stat-number');
+
+  if (statsSection && statNumbers.length > 0) {
+    let animated = false;
+
+    const startCounters = () => {
+      statNumbers.forEach(statNumber => {
+        const target = parseInt(statNumber.getAttribute('data-target'), 10);
+        const isPercentage = statNumber.textContent.includes('%') || statNumber.getAttribute('data-target') === '100';
+        let current = 0;
+        const duration = 1500; // 1.5 seconds animation
+        const increment = target / (duration / 16); // approx 60fps
+
+        const updateCounter = () => {
+          current += increment;
+          if (current >= target) {
+            statNumber.textContent = target + (isPercentage ? '%' : '');
+          } else {
+            statNumber.textContent = Math.floor(current) + (isPercentage ? '%' : '');
+            requestAnimationFrame(updateCounter);
+          }
+        };
+
+        updateCounter();
+      });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !animated) {
+          startCounters();
+          animated = true;
+          observer.unobserve(statsSection);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(statsSection);
+  }
 });
