@@ -247,8 +247,9 @@ a {
 }
 
 .hero-image-col {
-  width: 100%;
-  max-width: 1080px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hero-banner-wrapper {
