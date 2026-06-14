@@ -226,17 +226,15 @@ a {
 .hero-container {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
+  padding-top: 3rem;
 }
 
+
 .hero-image-col {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  width: 100%;
+  line-height: 0;
 }
 
 .hero-banner-wrapper {
