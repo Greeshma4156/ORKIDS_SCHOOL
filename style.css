@@ -110,10 +110,34 @@ a {
   padding: 0 2rem;
 }
 
+/* Announcement Bar */
+.announcement-bar {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 0;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.announcement-bar a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  margin-left: 5px;
+  transition: opacity 0.2s ease;
+}
+
+.announcement-bar a:hover {
+  opacity: 0.8;
+}
+
 /* Header & Navigation */
 .main-header {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 36px; /* Offset by announcement bar height */
   left: 0;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.95);
@@ -124,6 +148,8 @@ a {
 }
 
 .main-header.scrolled {
+  position: fixed;
+  top: 0; /* Sticks to the absolute top when scrolled */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -1882,6 +1908,63 @@ body.modal-active {
     align-items: flex-start;
     gap: 12px;
     padding: 20px;
+  }
+}
+
+/* Desktop Hero side-by-side layout with Portrait School Building Card */
+@media (min-width: 992px) {
+  .hero-container {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    padding-top: 3rem;
+  }
+  
+  .hero-content-col {
+    width: 55%;
+    max-width: none;
+    text-align: left;
+    align-items: flex-start;
+  }
+  
+  .hero-image-col {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .hero-banner-wrapper {
+    width: 100%;
+    max-width: 380px;
+    height: 520px;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(2, 35, 73, 0.16);
+    border: 6px solid #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hero-banner-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(2, 35, 73, 0.22);
+  }
+  
+  .hero-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .hero-title, .hero-subtitle, .hero-text {
+    text-align: left;
+  }
+  
+  .hero-text {
+    margin-left: 0;
+  }
+  
+  .hero-buttons {
+    justify-content: flex-start;
   }
 }
 
