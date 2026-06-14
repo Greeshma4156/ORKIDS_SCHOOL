@@ -15,6 +15,35 @@ const MIME_TYPES = {
 };
 
 const server = http.createServer((req, res) => {
+  // POST Endpoint to save cropped student images
+  if (req.method === 'POST' && req.url === '/save-image') {
+    let body = '';
+    req.on('data', chunk => {
+      body += chunk.toString();
+    });
+    req.on('end', () => {
+      try {
+        const payload = JSON.parse(body);
+        const name = payload.name;
+        const base64Data = payload.data.replace(/^data:image\/\w+;base64,/, '');
+        const buffer = Buffer.from(base64Data, 'base64');
+        
+        const dir = path.join(__dirname, 'assets', 'toppers');
+        if (!fs.existsSync(dir)) {
+          fs.mkdirSync(dir, { recursive: true });
+        }
+        
+        fs.writeFileSync(path.join(dir, name), buffer);
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: true }));
+      } catch (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: err.message }));
+      }
+    });
+    return;
+  }
+
   // Normalize URL to prevent directory traversal
   let safeUrl = req.url.split('?')[0];
   if (safeUrl === '/') safeUrl = '/index.html';
