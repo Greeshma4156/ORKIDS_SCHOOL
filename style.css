@@ -207,21 +207,6 @@ a {
   gap: 2.2rem;
 }
 
-.lang-selector {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  cursor: pointer;
-}
-
-.icon-globe {
-  width: 18px;
-  height: 18px;
-}
-
 .mobile-nav-toggle {
   display: none;
   background: none;
