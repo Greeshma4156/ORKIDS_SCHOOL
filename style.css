@@ -232,8 +232,9 @@ a {
 }
 
 .hero-image-col {
-  width: 100%;
-  max-width: 1080px;
+  width: 40%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hero-banner-wrapper {
@@ -248,7 +249,7 @@ a {
 }
 
 .hero-banner-img {
-  width: 100%;
+  width: 90%;
   height: auto;
   display: block;
 }
@@ -1233,6 +1234,10 @@ a {
     gap: 3rem;
   }
   
+  .hero-image-col {
+    width: 80%;
+  }
+  
   .hero-highlights {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1400,6 +1405,10 @@ a {
   .hero-section {
     padding-top: 8rem;
     padding-bottom: 4rem;
+  }
+  
+  .hero-image-col {
+    width: 95%;
   }
   
   .hero-highlights {
