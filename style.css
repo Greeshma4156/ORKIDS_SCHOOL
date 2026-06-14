@@ -247,7 +247,7 @@ a {
 }
 
 .hero-image-col {
-  width: 90%;
+  width: 40%;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -1249,6 +1249,10 @@ a {
     gap: 3rem;
   }
   
+  .hero-image-col {
+    width: 80%;
+  }
+  
   .hero-highlights {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1416,6 +1420,10 @@ a {
   .hero-section {
     padding-top: 8rem;
     padding-bottom: 4rem;
+  }
+  
+  .hero-image-col {
+    width: 95%;
   }
   
   .hero-highlights {
