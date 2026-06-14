@@ -121,4 +121,37 @@ document.addEventListener('DOMContentLoaded', () => {
       formFeedback.style.display = 'none';
     }, 6000);
   };
+
+  // 5. Announcement Modal Interaction
+  const modalOverlay = document.getElementById('announcement-modal');
+  const modalCloseBtn = document.getElementById('modal-close');
+
+  if (modalOverlay && modalCloseBtn) {
+    // Show modal immediately on page load with a smooth delay
+    setTimeout(() => {
+      modalOverlay.classList.add('open');
+      document.body.classList.add('modal-active');
+    }, 400);
+
+    const closeModal = () => {
+      modalOverlay.classList.remove('open');
+      document.body.classList.remove('modal-active');
+    };
+
+    modalCloseBtn.addEventListener('click', closeModal);
+
+    // Close when clicking on the overlay outside the modal content
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) {
+        closeModal();
+      }
+    });
+
+    // Close on Escape key press
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
+        closeModal();
+      }
+    });
+  }
 });
