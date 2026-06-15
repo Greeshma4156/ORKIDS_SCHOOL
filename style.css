@@ -666,11 +666,17 @@ a {
   transform: translateX(5px);
 }
 
-.facilities-grid {
+/* New facilities layout */
+.facilities-grid-new {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.facilities-row-top {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  min-height: 520px;
 }
 
 .facility-card {
@@ -681,8 +687,24 @@ a {
   height: 100%;
 }
 
-.tall-card {
-  height: 100%;
+/* Important tall cards: classroom & uniform — shown fully with no cropping */
+.facility-card--tall {
+  min-height: 480px;
+  background-color: #f0f0f0;
+}
+
+.facility-card--contain .facility-img {
+  object-fit: contain;
+  background-color: #f4f4f4;
+}
+
+/* Wide sports card spanning full width */
+.facility-card--wide {
+  height: 300px;
+}
+
+.facility-card--wide .facility-img {
+  object-fit: cover;
 }
 
 .facility-img {
@@ -694,7 +716,7 @@ a {
 }
 
 .facility-card:hover .facility-img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .facility-overlay {
@@ -703,7 +725,7 @@ a {
   left: 0;
   width: 100%;
   padding: 2.5rem 2rem 2rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.35) 60%, transparent 100%);
   color: var(--bg-white);
   display: flex;
   flex-direction: column;
@@ -718,19 +740,12 @@ a {
 
 .facility-card-text {
   font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
 }
 
-.facilities-subgrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 1.5rem;
-}
-
-.wide-card {
-  grid-column: span 2;
-}
+/* Keep old classes harmless */
+.facilities-subgrid { display: none; }
+.tall-card, .wide-card { }
 
 /* Principal Section */
 .principal-section {
