@@ -275,123 +275,101 @@ a {
 }
 
 .hero-section {
-  padding-top: 3.5rem;
-  padding-bottom: 5rem;
-  background-color: var(--bg-cream);
-  overflow-x: hidden;
+  position: relative;
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 5rem 0;
+  background-color: var(--primary-color);
+}
+
+.hero-bg-media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 8% 10%;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(2, 35, 73, 0.4) 0%, rgba(2, 35, 73, 0.6) 50%, rgba(2, 35, 73, 0.85) 100%);
+  z-index: 2;
 }
 
 .hero-container {
+  position: relative;
+  z-index: 3;
   width: 100%;
-  max-width: 1400px; /* Increased container width */
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5rem;
-  box-sizing: border-box;
-}
-
-.hero-image-col {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-banner-wrapper {
-  width: 95%; /* Makes image wider */
-  max-width: 1400px;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(2, 35, 73, 0.12);
-  transition: transform 0.3s ease;
-}
-
-.hero-banner-wrapper:hover {
-  transform: translateY(-3px);
-}
-
-.hero-banner-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-.hero-content-col {
-  width: 100%;
-  max-width: 850px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .hero-section {
-    padding-top: 2rem;
-    padding-bottom: 4rem;
-  }
-
-  .hero-container {
-    padding: 0 15px;
-  }
-
-  .hero-banner-wrapper {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 15px;
-  }
-}
-
-.badge-admissions {
-  display: inline-block;
-  background-color: #fef3c7;
-  color: #d97706;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.75rem;
-  padding: 0.4rem 1.2rem;
+.hero-glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(231, 170, 36, 0.3);
   border-radius: 20px;
-  letter-spacing: 1px;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
+  padding: 3rem;
+  max-width: 600px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
 }
 
 .hero-title {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   color: var(--primary-color);
   font-weight: 800;
-  margin-bottom: 0.5rem;
+  line-height: 1.25;
+  margin-bottom: 0;
 }
 
 .hero-subtitle {
-  font-size: 1.6rem;
-  color: var(--text-muted);
-  font-weight: 500;
-  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 0;
 }
 
 .hero-text {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-muted);
-  margin-bottom: 2rem;
-  max-width: 750px;
+  max-width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-  justify-content: center;
+  gap: 1.2rem;
+  justify-content: flex-start;
+  margin-bottom: 0;
 }
 
 .hero-highlights {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
   width: 100%;
 }
 
@@ -399,16 +377,18 @@ a {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  background-color: var(--bg-white);
-  padding: 0.9rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(2, 35, 73, 0.05);
+  padding: 0.7rem 1.2rem;
   border-radius: 50px;
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 4px 15px rgba(2, 35, 73, 0.03);
   transition: all var(--transition-normal);
 }
 
 .highlight-item:hover {
   transform: translateY(-3px);
   box-shadow: var(--box-shadow-hover);
+  background-color: var(--bg-white);
 }
 
 .highlight-icon {
@@ -432,6 +412,47 @@ a {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-dark);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    padding: 3rem 0;
+  }
+
+  .hero-container {
+    padding: 0 15px;
+  }
+
+  .hero-glass-card {
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+    gap: 1.2rem;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+  }
+
+  .hero-highlights {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
 }
 
 /* Why Parents Choose Orkids Section */
@@ -1983,60 +2004,5 @@ body.modal-active {
   }
 }
 
-/* Desktop Hero side-by-side layout with Portrait School Building Card */
-@media (min-width: 992px) {
-  .hero-container {
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4rem;
-    padding-top: 3rem;
-  }
-  
-  .hero-content-col {
-    width: 55%;
-    max-width: none;
-    text-align: left;
-    align-items: flex-start;
-  }
-  
-  .hero-image-col {
-    width: 40%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .hero-banner-wrapper {
-    width: 100%;
-    max-width: 380px;
-    height: 520px;
-    border-radius: 24px;
-    box-shadow: 0 15px 40px rgba(2, 35, 73, 0.16);
-    border: 6px solid #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .hero-banner-wrapper:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 45px rgba(2, 35, 73, 0.22);
-  }
-  
-  .hero-banner-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .hero-title, .hero-subtitle, .hero-text {
-    text-align: left;
-  }
-  
-  .hero-text {
-    margin-left: 0;
-  }
-  
-  .hero-buttons {
-    justify-content: flex-start;
-  }
-}
+/* Legacy Hero Styles Removed */
 
