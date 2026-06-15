@@ -531,6 +531,8 @@ a {
   position: relative;
 }
 
+
+
 .journey-step-card {
   position: relative;
   padding: 2rem;
@@ -558,6 +560,34 @@ a {
   font-size: 1.2rem;
   border-radius: 50%;
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.journey-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0.5rem auto 1.2rem;
+  display: block;
+}
+
+.step-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.step-tag {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
 .step-card-title {
