@@ -687,30 +687,33 @@ a {
   height: 100%;
 }
 
-/* Important tall cards: classroom & uniform — shown fully with no cropping */
+/* Natural aspect ratio cards — shown fully with no cropping */
 .facility-card--tall {
-  min-height: 480px;
-  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
 }
 
 .facility-card--contain .facility-img {
+  width: 100%;
+  height: auto;
   object-fit: contain;
-  background-color: #f4f4f4;
 }
 
 /* Wide sports card spanning full width */
 .facility-card--wide {
-  height: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .facility-card--wide .facility-img {
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .facility-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
   display: block;
   transition: transform var(--transition-normal);
 }
